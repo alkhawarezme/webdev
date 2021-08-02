@@ -1,0 +1,105 @@
+body{
+            
+           margin: 0;
+            
+        }
+        .btn{
+            padding:3px;
+            width: 100px;
+            background-color:black ;
+            color:greenyellow ;
+            font-size: 1.0em;
+        }
+        .btn:hover{            
+            background-color:rgb(92, 88, 88) ;
+        }
+
+        header{
+            padding:3px;
+            text-align:center;
+            background-color:black ;
+            color:greenyellow ;
+            font-size: 1.0em;   
+        }
+        .trainingResult{
+            display:flex;  
+            flex-wrap:wrap;
+            justify-content: center;
+            padding:35px;
+            
+        }
+        .trainingResult .card:hover {
+            font-size: 100%;
+            padding: 2mm;
+            margin: 10px 10px;
+            flex: 0 1 20%;
+            box-shadow: 3px 3px 2px 0px rgba(50, 50, 50, 0.5);
+}
+
+         
+        .trainingResult > * {
+  flex: 1 1 calc(280px + .5em); 
+   /* 1em margin als Spaltenabstand berücksichtigt, calc() nicht notwendig */
+
+}
+
+.trainingSearchResult{
+    display:flex;  
+            flex-wrap:wrap;
+            justify-content: center;
+            padding:5px;
+           
+            background-color: rgb(241, 235, 233);
+                       
+}
+
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  
+  border-radius: 5px;
+  margin:5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container{
+    text-align: center;
+    color: rgb(29, 34, 24);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+  
+}
+
+.searchLabel{
+    width:60%;
+    margin:50px auto;
+    background-color: rgb(50, 83, 17);
+    border-radius: 25px;
+    padding:25px;
+    text-align: center;
+    color: white;
+}
+.search{
+    padding:5px;
+    width:200px;
+    border:0;
+    border-bottom:2px solid grey ;
+}
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 500px) {
+  .card {
+   width:250px;
+   padding:45px;
+   
+  }
+  .search{
+      width:100px;
+  }
+}

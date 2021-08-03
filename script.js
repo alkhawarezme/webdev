@@ -89,48 +89,48 @@ const getUsers = (id)=>{
 
 
 
-const search = document.querySelector('.search');
-const test = document.querySelector('.test');
-search.addEventListener('keyup', (e)=>{
-    console.log(e.target.value);
-    document.querySelector('h1').innerHTML=(!e.target.value.trim())?'All Users':'User with Id: '+ e.target.value;
-    let val = e.target.value;
-    getUsers(val);
-})
+// const search = document.querySelector('.search');
+// const test = document.querySelector('.test');
+// search.addEventListener('keyup', (e)=>{
+//     console.log(e.target.value);
+//     document.querySelector('h1').innerHTML=(!e.target.value.trim())?'All Users':'User with Id: '+ e.target.value;
+//     let val = e.target.value;
+//     getUsers(val);
+// })
+
+
+//add users To DropDownList
+//function must be precede with async
+const fillddList=async ()=>{
+    /*
+    get is returning promise to use async/await instaed of then/catch
+    asycn await code   is concise and look like synchronous
+    */
+   const ddList =document.querySelector('.ddusers');
+
+   const users = await  get();
+   users.forEach(user=>{
+       console.log(user);
+    var option = document.createElement("option");   
+    option.value=user.id;
+    option.text=user.name;
+    ddList.add(option);
+   });
+}
 
 window.onload=function(){
+    
+   fillddList();
     getUsers();
 }
 
-class Person {
-    constructor(name,email,age){
-        this.name=name;
-        this.email=email;
-        this.age;
-        console.log('from inside ',this);
-        
-    }
-    incrementAge(){
-        const test="ssssssssss";
-        console.log(this);
-        
-        const get =()=>{
-            console.log('test44444444444 ',test);
-            console.log('this222 ',this);
-        }
-        //console.log('this3333 ',this);
-        
-        get();
-    }    
-}
-
-
-const Sayed = new Person('Sayed','sa@sa.com',33);
-console.log(Sayed.incrementAge());
-
- /*
-  https://www.javascripttutorial.net/es6/object-literal-extensions/
-
-  https://learnersbucket.com/tutorials/es6/es6-intro/
-  https://learnersbucket.com/tutorials/es6/sets/
-  */
+const ddusers = document.querySelector('.ddusers');
+ddusers.addEventListener('change',(e)=>{
+ //alert(e.target.value);
+ const userId = e.target.value;
+ if(userId){
+    getUsers(userId);
+ }
+ else
+ getUsers();
+})
